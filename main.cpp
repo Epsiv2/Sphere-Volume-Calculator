@@ -8,51 +8,51 @@ const double PI = 3.14159265358979323846;
 
 int main()
 {
-	int jednostka;
-	cout << "Podaj jednostke w ktorej chcesz obliczyc objetosc kuli (1 - metry, 2 - centymetry, 3 - milimetry): " << endl;
-	cin >> jednostka;
+	int unit;
+	cout << "Enter unit (1 - meters, 2 - centimeters, 3 - millimeters): " << endl;
+	cin >> unit;
 	while (cin.fail())
 	{
-		cout << "Niepoprawna jednostka, podaj jeszcze raz (1 - metry, 2 - centymetry, 3 - milimetry): " << endl;
+		cout << "Invalid unit, please enter again (1 - meters, 2 - centimeters, 3 - millimeters): " << endl;
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> jednostka;
+		cin >> unit;
 	}
-	while (jednostka < 1 || jednostka > 3)
+	while (unit < 1 || unit > 3)
 	{
-		cout << "Niepoprawna jednostka, podaj jeszcze raz (1 - metry, 2 - centymetry, 3 - milimetry): " << endl;
-		cin >> jednostka;
+		cout << "Invalid unit, please enter again (1 - meters, 2 - centimeters, 3 - millimeters): " << endl;
+		cin >> unit;
 	}
 
-	string znak = "";
-	if (jednostka == 1)
+	string sign = "";
+	if (unit == 1)
 	{
-		cout << "Wybrales metry." << endl;
-		znak = "m^3";
+		cout << "You selected meters." << endl;
+		sign = "m^3";
 	}
-	if (jednostka == 2)
+	if (unit == 2)
 	{
-		cout << "Wybrales centymetry." << endl;
-		znak = "cm^3";
+		cout << "You selected centimeters." << endl;
+		sign = "cm^3";
 	}
-	if (jednostka == 3)
+	if (unit == 3)
 	{
-		cout << "Wybrales milimetry." << endl;
-		znak = "mm^3";
+		cout << "You selected millimeters." << endl;
+		sign = "mm^3";
 	}
 
-	cout << "Podaj promien kuli, abym mogl obliczyc objetosc..." << endl;
-	double promien = 0.0;
-	cin >> promien;
+	cout << "Enter the radius of the sphere, so I can calculate the volume..." << endl;
+	double radius = 0.0;
+	cin >> radius;
 	while (cin.fail())
 	{
-		cout << "Niepoprawna wartosc promienia, podaj jeszcze raz: " << endl;
+		cout << "Invalid radius value, please enter again: " << endl;
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> promien;
+		cin >> radius;
 	}
-	cout << "Promien kuli to " << promien << endl;
-	double objetosc = (4.0/3.0) * PI * pow(promien, 3);
-	cout << "wiec objetosc kuli to " << objetosc << znak << endl;
+	cout << "The radius of the sphere is " << radius << endl;
+	double volume = (4.0/3.0) * PI * pow(radius, 3);
+	cout << "Therefore, the volume of the sphere is " << volume << sign << endl;
 	return 0;
 }
